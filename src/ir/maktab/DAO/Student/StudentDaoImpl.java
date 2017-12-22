@@ -66,7 +66,6 @@ public class StudentDaoImpl extends EntityDao implements StudentDao {
         init();
         String sql;
         sql = "select * from " + TABLE_NAME;
-        System.out.println(sql);
         rs = stmt.executeQuery(sql);
 
         //STEP 5: Extract data from result set

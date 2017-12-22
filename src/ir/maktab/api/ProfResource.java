@@ -12,6 +12,7 @@ import java.util.List;
 /**
  * Created by nader on 12/10/2017.
  */
+
 @Path("/profs")
 public class ProfResource {
     private ProfDao profDao = new ProfDaoImpl();

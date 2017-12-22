@@ -1,7 +1,11 @@
-//////////////// student Page js //////////
+/**
+ * Created by Nader on 12/22/2017.
+ */
+//////////////// prof Page js //////////
 
 ////////////// document.ready ////////////
 $(function () {
+    console.log("hi profs")
     reloadTable();
 
 });
@@ -10,7 +14,7 @@ $(function () {
 $("#addForm").submit(function (e) {
     $.ajax({
         type: "POST",
-        url: "/hw6/api/students",
+        url: "/hw6/api/profs",
         dataType: "json",
         contentType: "application/json",
         data: JSON.stringify(ConvertFormToJSON(this)),
@@ -43,25 +47,25 @@ function ConvertFormToJSON(form){
 
 //////////// JQuery Ajax To reload Table///////////
 function reloadTable() {
-    $("#stTable tbody").empty();
-    $.getJSON("/hw6/api/students", function (data, status) {
+    $("#prTable tbody").empty();
+    $.getJSON("/hw6/api/profs", function (data, status) {
         $.each(data, function (index, element) {
             addRow(element);
         })
         /////////// bootstable part /////////
-        $("#stTable").SetEditable({
-            columnsEd: "1,2,3",
+        $("#prTable").SetEditable({
+            columnsEd: "1,2",
             onEdit: function (row) {
                 //////////  edit ajax ////////////
                 var id = row[0].firstChild.textContent;
-                $.each($("#stTable").tableToJSON(), function (i, student) {
-                    if (student.id === id) {
+                $.each($("#prTable").tableToJSON(), function (i, prof) {
+                    if (prof.id === id) {
                         $.ajax({
-                            url: "/hw6/api/students/" + id,
+                            url: "/hw6/api/profs/" + id,
                             type: "PUT",
                             dataType: "json",
                             contentType: "application/json",
-                            data: JSON.stringify(student),
+                            data: JSON.stringify(prof),
                             success: function (result) {
                                 alert(result?"Successfully Edited":"Not Exist!");
                             },
@@ -75,7 +79,7 @@ function reloadTable() {
             },
             onDelete: function (t) {
                 $.ajax({
-                    url: "/hw6/api/students/" + $(t).parents("tr").children().first().text(),
+                    url: "/hw6/api/profs/" + $(t).parents("tr").children().first().text(),
                     type: 'DELETE',
                     success: function (result) {
                         alert(result==="true" ? "Successfully Deleted" : "Not Exist!");
@@ -93,7 +97,7 @@ function addRow(JsonElement) {
         row += '<td>' + field + '</td>';
     });
     row += '</tr>';
-    $("#stTable tbody").append(row);
+    $("#prTable tbody").append(row);
 }
 
 ////////// submitForm function with ajax /////////
@@ -102,7 +106,7 @@ function addRow(JsonElement) {
 //     console.log(formData);
 //     $.ajax({
 //         type: "POST",
-//         url: "/hw6/api/students",
+//         url: "/hw6/api/profs",
 //         data: formData,
 //         success: function(){alert("Successfully Added")},
 //         dataType: "json",
