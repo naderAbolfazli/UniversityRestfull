@@ -30,10 +30,10 @@ public class StudentDaoImpl extends EntityDao implements StudentDao {
         String sql;
         if (s.getId() == null)
             sql = String.format("insert into %s (name, dept, supervisor_id)" +
-                    " values ('%s', '%s', '%d')", TABLE_NAME, s.getName(), s.getDept(), s.getSupervisor_id());
+                    " values ('%s', '%s', '%d')", TABLE_NAME, s.getName(), s.getDept(), s.getProf_id());
         else
             sql = String.format("insert into %s " +
-                    " values ('%s', '%s', '%s', '%d')", TABLE_NAME, s.getId(), s.getName(), s.getDept(), s.getSupervisor_id());
+                    " values ('%s', '%s', '%s', '%d')", TABLE_NAME, s.getId(), s.getName(), s.getDept(), s.getProf_id());
         stmt.executeUpdate(sql);
         finalize(stmt, conn);
 
@@ -66,7 +66,7 @@ public class StudentDaoImpl extends EntityDao implements StudentDao {
         init();
         String sql;
         sql = "select * from " + TABLE_NAME;
-        System.out.print(sql);
+        System.out.println(sql);
         rs = stmt.executeQuery(sql);
 
         //STEP 5: Extract data from result set

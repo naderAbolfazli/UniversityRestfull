@@ -7,18 +7,20 @@ public class Student {
     private Integer id;
     private String name;
     private String dept;
-    private int supervisor_id;
+
+
+    private int prof_id;
 
     public Student(String name, String dept, int sid){
         this.name=name;
         this.dept=dept;
-        this.supervisor_id =sid;
+        this.prof_id =sid;
     }
     public Student(Integer id, String name, String dept, int sid){
         this.id =id;
         this.name=name;
         this.dept=dept;
-        this.supervisor_id =sid;
+        this.prof_id =sid;
     }
 
     public Student(){}
@@ -49,22 +51,22 @@ public class Student {
         this.dept = dept;
     }
 
-    public int getSupervisor_id() {
-        return supervisor_id;
+    public int getProf_id() {
+        return prof_id;
     }
 
-    public void setSupervisor_id(int supervisor_id) {
-        this.supervisor_id = supervisor_id;
+    public void setProf_id(int prof_id) {
+        this.prof_id = prof_id;
     }
+
 
     @Override
     public String toString() {
         return "Student{" +
                 "name='" + name + '\'' +
                 ", dept='" + dept + '\'' +
-                ", supervisor_id=" + supervisor_id +
+                ", prof_id=" + prof_id +
                 '}';
     }
-
 
 }

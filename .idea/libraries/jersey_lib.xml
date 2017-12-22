@@ -1,12 +1,12 @@
 <component name="libraryTable">
   <library name="jersey-lib">
     <CLASSES>
-      <root url="file://$PROJECT_DIR$/../jersey-lib" />
+      <root url="file://$PROJECT_DIR$/../lib/jersey-lib/jersey-lib" />
       <root url="file://$PROJECT_DIR$/../lib/fasterxml.jackson" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
-    <jarDirectory url="file://$PROJECT_DIR$/../jersey-lib" recursive="false" />
     <jarDirectory url="file://$PROJECT_DIR$/../lib/fasterxml.jackson" recursive="false" />
+    <jarDirectory url="file://$PROJECT_DIR$/../lib/jersey-lib/jersey-lib" recursive="false" />
   </library>
 </component>
